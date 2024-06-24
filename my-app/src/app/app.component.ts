@@ -12,5 +12,5 @@ import { HeaderComponent } from './layout/header/header.component';
     imports: [RouterOutlet, HomeComponent, FooterComponent, HeaderComponent]
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'E-Commerce App';
 }
