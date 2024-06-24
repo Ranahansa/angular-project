@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
+  imports: [MatFormFieldModule],
   standalone: true,
-  imports: [],
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss'
+  styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products : any[] = [];
+  products: any[] = [];
   searchTerm: string = '';
 
   constructor(private productService: ProductService) { }
@@ -20,11 +21,10 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  searchProducts():void {
-    if(this.searchTerm){
-      this.products = this.products.filter(product =>
-        product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-      )
+  searchProducts(): void {
+    if (this.searchTerm) {
+      this.products = this.products.filter(product => 
+        product.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
     } else {
       this.ngOnInit();
     }
